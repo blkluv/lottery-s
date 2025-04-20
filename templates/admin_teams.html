@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀 관리</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body>
+    <nav>
+        <h1>팀 관리</h1>
+        <div class="nav-links">
+            <a href="/admin" class="nav-link">관리자 메뉴</a>
+            <a href="/" class="nav-link">메인으로 돌아가기</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="team-management">
+            <h2>팀 관리</h2>
+            <form id="addTeamForm" class="add-form">
+                <div class="form-group">
+                    <input type="text" id="teamName" placeholder="팀 이름" required>
+                </div>
+                <button type="submit" class="btn-primary">팀 추가</button>
+            </form>
+            
+            <div class="team-list">
+                <h3>등록된 팀 목록</h3>
+                <table id="teamTable">
+                    <thead>
+                        <tr>
+                            <th>팀 이름</th>
+                            <th>팀원 수</th>
+                            <th>작업</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 팀 목록이 여기에 동적으로 추가됩니다 -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="team-member-form">
+                <h3>팀원 추가</h3>
+                <form id="addTeamMemberForm" class="add-form">
+                    <div class="form-group">
+                        <select id="teamSelect" required>
+                            <option value="">팀 선택</option>
+                        </select>
+                    </div>
+                    <div id="memberInputs" class="member-input-group">
+                        <!-- 팀원 입력창이 여기에 동적으로 추가됩니다 -->
+                    </div>
+                    <button type="button" class="btn-primary" onclick="addMemberInput()">팀원 추가</button>
+                    <button type="submit" class="btn-primary">저장</button>
+                </form>
+            </div>
+
+            <div class="team-member-search">
+                <h3>팀원 조회</h3>
+                <div class="search-form">
+                    <select id="searchTeamSelect">
+                        <option value="">전체 팀</option>
+                    </select>
+                    <input type="text" id="searchEmployeeId" placeholder="사번으로 검색">
+                    <button onclick="searchTeamMembers()" class="btn-primary">검색</button>
+                </div>
+            </div>
+
+            <div class="team-member-list">
+                <h3>팀원 목록</h3>
+                <table id="teamMemberTable">
+                    <thead>
+                        <tr>
+                            <th>팀</th>
+                            <th>사번</th>
+                            <th>이름</th>
+                            <th>작업</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 팀원 목록이 여기에 동적으로 추가됩니다 -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='admin_teams.js') }}"></script>
+</body>
+</html> 

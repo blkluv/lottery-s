@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery for Hackathon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav>
+        <h1>2025 AI 해커톤</h1>
+        <div class="nav-links">
+            <a href="{{ url_for('guide') }}" class="nav-link">해커톤 안내</a>
+            <a href="#prize-section" aria-label="행운 경품 뽑기 섹션으로 이동">행운 경품 뽑기</a>
+            <button id="adminButton" class="admin-button">관리자 화면</button>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <video autoplay muted loop playsinline
+               aria-label="해커톤 소개 영상"
+               poster="{{ url_for('static', filename='assets/video-poster.jpg') }}">
+            <source src="{{ url_for('static', filename='assets/hackathon-intro.mp4') }}" type="video/mp4">
+            <track kind="descriptions" src="{{ url_for('static', filename='assets/video-description.vtt') }}" label="영상 설명">
+            브라우저가 비디오를 지원하지 않습니다. 대체 콘텐츠를 확인해주세요.
+        </video>
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h2>
+                <span class="text-line">AI Powered ITS</span>
+                <span class="text-line">AI Soft Engineering</span>
+            </h2>
+            <div class="company-name">SK Holdings C&C</div>
+            <a href="#prize-section" class="cta-button" aria-label="행운 경품 뽑기 시작하기">시작하기</a>
+        </div>
+    </section>
+
+    <section id="prize-section">
+        <div class="employee-id-input-container">
+            <label for="employeeId">사번을 입력하세요</label>
+            <input type="text" id="employeeId" placeholder="사번을 입력하세요">
+            <button onclick="checkEmployee()">확인</button>
+        </div>
+        <h2>행운 경품</h2>
+        <div class="prize-cards-container">
+            {% for prize in prizes %}
+            <div class="prize-card">
+                <img src="{{ prize.image_url }}" alt="{{ prize.name }} 이미지">
+                <h3>{{ prize.name }}</h3>
+                <p>{{ prize.description }}</p>
+                <div class="prize-info">
+                    <span>총 수량: {{ prize.total_quantity }}</span>
+                    <span>남은 수량: {{ prize.remaining_quantity }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="hackathon-section">
+        <h2>해커톤 정보</h2>
+        <p>2025 해커톤에 참여하는 팀들을 소개합니다.</p>
+        <p>모든 팀원들의 열정과 노력을 응원합니다!</p>
+        
+        <div class="info-grid">
+            <div class="info-item">
+                <h3>참여 팀</h3>
+                <div id="teamsList" class="teams-list">
+                    <!-- 팀 목록이 여기에 동적으로 추가됩니다 -->
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <h3>경품 목록</h3>
+                <div id="prizesList" class="prizes-list">
+                    <!-- 경품 목록이 여기에 동적으로 추가됩니다 -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://www.skcc.co.kr/" target="_blank" aria-label="SK C&C 홈페이지로 이동">홈페이지</a>
+        </div>
+        <a href="mailto:aihackathon@sk.com" class="contact-button" aria-label="문의하기">
+            <i class="material-icons">email</i>
+            문의하기
+        </a>
+        <p>&copy; 2025 SK Holdings C&C. All rights reserved.</p>
+    </footer>
+
+    <div id="contact-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+        <div class="modal-content">
+            <span class="close-button" aria-label="모달 닫기">&times;</span>
+            <h3 id="modal-title">문의하기</h3>
+            <form id="contact-form">
+                <input type="hidden" name="csrf_token" value="">
+                <label for="name">이름:</label>
+                <input type="text" id="name" name="name" required aria-required="true">
+
+                <label for="email">이메일:</label>
+                <input type="email" id="email" name="email" required aria-required="true">
+
+                <label for="message">메시지:</label>
+                <textarea id="message" name="message" rows="4" required aria-required="true"></textarea>
+
+                <button type="submit">보내기</button>
+            </form>
+            <div class="support-info">
+                <h4>고객 지원 정보</h4>
+                <p>이메일: <a href="mailto:support@example.com">support@example.com</a></p>
+                <p>전화: 02-1234-5678</p>
+                <p>운영 시간: 평일 9:00 - 18:00</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 비밀번호 입력 모달 -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <h2>관리자 비밀번호</h2>
+            <input type="password" id="adminPassword" placeholder="비밀번호를 입력하세요">
+            <div class="modal-buttons">
+                <button id="confirmPassword">확인</button>
+                <button id="cancelPassword">취소</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

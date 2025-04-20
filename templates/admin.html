@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 메뉴</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body>
+    <nav>
+        <h1>관리자 메뉴</h1>
+        <a href="/" class="nav-link">메인으로 돌아가기</a>
+    </nav>
+
+    <main>
+        <div class="admin-menu">
+            <a href="/admin/prizes" class="menu-item">
+                <h2>경품 관리</h2>
+                <p>경품 등록, 수정, 삭제</p>
+            </a>
+            <a href="/admin/winners" class="menu-item">
+                <h2>당첨자 목록</h2>
+                <p>당첨자 조회</p>
+            </a>
+            <a href="/admin/teams" class="menu-item">
+                <h2>팀 관리</h2>
+                <p>팀 및 팀원 관리</p>
+            </a>
+        </div>
+    </main>
+</body>
+</html> 

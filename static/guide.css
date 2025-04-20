@@ -1,0 +1,251 @@
+/* Material UI 스타일 */
+:root {
+    --primary-color: #1976d2;
+    --primary-light: #42a5f5;
+    --primary-dark: #1565c0;
+    --secondary-color: #f5f5f5;
+    --text-primary: #212121;
+    --text-secondary: #757575;
+    --divider-color: #e0e0e0;
+    --error-color: #d32f2f;
+    --success-color: #388e3c;
+    --warning-color: #f57c00;
+    --info-color: #0288d1;
+}
+
+/* 헤더 스타일 */
+.guide-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.guide-header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.guide-header-title {
+    flex: 0 0 auto;
+}
+
+.guide-header-action {
+    flex: 0 0 auto;
+}
+
+.guide-header h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+
+.guide-header-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.guide-header-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.guide-header-link i {
+    font-size: 1.2rem;
+}
+
+/* 메인 컨텐츠 */
+.guide-container {
+    max-width: 1200px;
+    margin: 5rem auto 2rem;
+    padding: 0 2rem;
+}
+
+/* 카드 스타일 */
+.material-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.section-title {
+    color: var(--primary-color);
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin: 0 0 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.info-group {
+    margin-bottom: 1.5rem;
+}
+
+.info-title {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0 0 1rem;
+}
+
+.info-text {
+    color: var(--text-primary);
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.info-note {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+    font-style: italic;
+}
+
+/* 리스트 스타일 */
+.material-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0.5rem 0;
+}
+
+.material-list li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.material-list li::before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+/* 테이블 스타일 */
+.material-table-container {
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.material-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.material-table th,
+.material-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--divider-color);
+}
+
+.material-table th {
+    background-color: var(--secondary-color);
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.material-table tr:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* 푸터 스타일 */
+.material-footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-button {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.contact-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.contact-button i {
+    font-size: 1.2rem;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .guide-container {
+        padding: 0 1rem;
+    }
+
+    .guide-header {
+        padding: 0.8rem 1rem;
+    }
+
+    .guide-header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .guide-header-links {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .material-table th,
+    .material-table td {
+        padding: 0.75rem;
+    }
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.material-card {
+    animation: fadeIn 0.5s ease-out;
+} 

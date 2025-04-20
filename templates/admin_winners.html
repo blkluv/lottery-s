@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>당첨자 목록</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body>
+    <nav>
+        <h1>당첨자 목록</h1>
+        <div class="nav-links">
+            <a href="/admin" class="nav-link">관리자 메뉴</a>
+            <a href="/" class="nav-link">메인으로 돌아가기</a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="winner-list">
+            <h2>당첨자 목록</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>사번</th>
+                        <th>이름</th>
+                        <th>당첨 경품</th>
+                        <th>당첨 시간</th>
+                    </tr>
+                </thead>
+                <tbody id="winner-table-body">
+                    <!-- JavaScript로 데이터 채워짐 -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='admin_winners.js') }}"></script>
+</body>
+</html> 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경품 추첨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>경품 추첨</h1>
+        <div class="admin-button-container">
+            <button id="adminButton" class="admin-button">관리자화면</button>
+        </div>
+        <div class="input-container">
+            <input type="text" id="employeeId" placeholder="사번을 입력하세요">
+            <button id="checkButton">확인</button>
+        </div>
+        <div id="result" class="result"></div>
+        <div id="prizeDisplay" class="prize-display"></div>
+    </div>
+
+    <!-- 비밀번호 입력 모달 -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <h2>관리자 비밀번호</h2>
+            <input type="password" id="adminPassword" placeholder="비밀번호를 입력하세요">
+            <div class="modal-buttons">
+                <button id="confirmPassword">확인</button>
+                <button id="cancelPassword">취소</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
